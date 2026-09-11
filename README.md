@@ -402,6 +402,26 @@ Now opening a new Acode terminal automatically starts Ollama.
 
 ------------------------------------------------------------------------
 
+# Using other models
+
+This setup is not limited to gemma4:31b-cloud.
+
+To use another Ollama model, change only the model ID in opencode.jsonc.
+
+Example:
+
+gemma4:31b-cloud → your-model-name
+
+The Ollama bridge and OpenCode configuration remain the same.
+
+# Cloud usage fallback
+
+If a Cloud model is unavailable or usage is exhausted, you can switch OpenCode to a locally running Ollama model.
+
+Local models do not require Cloud usage credits, but performance depends on device hardware.
+
+------------------------------------------------------------------------
+
 # Troubleshooting
 
 ## Provider not found: ollama
