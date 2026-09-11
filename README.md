@@ -91,7 +91,53 @@ apk update
 
 ------------------------------------------------------------------------
 
-## 4. Install basic packages
+## 4. Fix Acode Alpine repositories first
+
+Acode's Alpine terminal may not have working Alpine repositories
+configured by default.
+
+Before installing packages, check:
+
+``` sh
+cat /etc/apk/repositories
+```
+
+If repositories are missing or incorrect, fix them:
+
+``` sh
+cat > /etc/apk/repositories <<'EOF'
+https://dl-cdn.alpinelinux.org/alpine/v3.21/main
+https://dl-cdn.alpinelinux.org/alpine/v3.21/community
+EOF
+```
+
+Update package indexes:
+
+``` sh
+apk update
+```
+
+Now install required packages:
+
+``` sh
+apk add zstd file gcompat ninja-build go
+```
+
+Additional build packages if required:
+
+``` sh
+apk add gcc g++ make cmake
+```
+
+Do not install `proot`. It is not required for this setup.
+
+This repository fix is important. Without it, `apk add` may fail with
+errors like:
+
+``` text
+no such package
+no provider found
+```
 
 The exact package list can vary depending on the existing Acode image.
 
