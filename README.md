@@ -404,13 +404,15 @@ Now opening a new Acode terminal automatically starts Ollama.
 
 # Using other models
 
-This setup is not limited to gemma4:31b-cloud.
+This setup is not limited to `gemma4:31b-cloud`.
 
-To use another Ollama model, change only the model ID in opencode.jsonc.
+To use another Ollama model, change only the model ID in `opencode.jsonc`.
 
 Example:
 
+```text
 gemma4:31b-cloud → your-model-name
+```
 
 The Ollama bridge and OpenCode configuration remain the same.
 
